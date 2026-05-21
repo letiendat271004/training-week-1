@@ -10,6 +10,39 @@ import static java.util.stream.Collectors.toList;
 
 public class Solution {
 
+    public static void countApplesAndOranges(
+            int s,
+            int t,
+            int a,
+            int b,
+            List<Integer> apples,
+            List<Integer> oranges) {
+
+        int appleCount = 0;
+        int orangeCount = 0;
+
+        for (int apple : apples) {
+
+            int position = a + apple;
+
+            if (position >= s && position <= t) {
+                appleCount++;
+            }
+        }
+
+        for (int orange : oranges) {
+
+            int position = b + orange;
+
+            if (position >= s && position <= t) {
+                orangeCount++;
+            }
+        }
+
+        System.out.println(appleCount);
+        System.out.println(orangeCount);
+    }
+
     public static void main(String[] args) throws IOException {
 
         BufferedReader bufferedReader =
@@ -55,7 +88,7 @@ public class Solution {
                         .map(Integer::parseInt)
                         .collect(toList());
 
-        Result.countApplesAndOranges(
+        countApplesAndOranges(
                 s,
                 t,
                 a,
